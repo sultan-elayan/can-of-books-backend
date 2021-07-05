@@ -35,4 +35,4 @@ console.log(newUser);
 newUser.save();
 }
 
-module.exports = userModel;
+module.exports = seedUserData;
