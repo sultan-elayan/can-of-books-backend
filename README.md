@@ -44,6 +44,6 @@ Estimate of time needed to complete: 2-3 hours
 
 Start time: 3:15
 
-Finish time: _____
+Finish time: 6
 
-Actual time needed to complete: _____
+Actual time needed to complete: 5:45
