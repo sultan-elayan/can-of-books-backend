@@ -7,6 +7,7 @@ const jwksClient=require('jwks-rsa');
 require('dotenv').config();
 app.use(cors());
 
+const port = process.env.PORT
 const client = jwksClient({
     // this url comes from your app on the auth0 dashboard 
     jwksUri: `https://${process.env.AUTH0_DOMAIN}/.well-known/jwks.json`
@@ -32,7 +33,12 @@ app.get('/authorize',(req,res)=>{
     res.send(token);
 });
 
-app.listen(process.env.PORT,()=>{
+
+app.get('/', (req,res)=>{
+   res.send('heeelllllllllllllo')
+})
+
+app.listen(port,()=>{
     console.log(`listening to port: ${process.env.PORT}`);
 })
 
