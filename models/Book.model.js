@@ -3,9 +3,13 @@
 const mongoose=require('mongoose');
 
 
-const usersSchema = new mongoose.Schema({
-    email: String,
-    books: [bookSchema],
-  });
+const bookSchema = new mongoose.Schema({
+  name: String,
+  description: String,
+  status: String,
 
-  module.exports=usersSchema
+});
+
+
+
+  module.exports=bookSchema
