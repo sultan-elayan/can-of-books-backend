@@ -27,7 +27,7 @@ app.get('/', (req,res)=>{
 app.get('/books', bookController);
 // app.get('/', usersSchema);
 
-seedUserData();
+
 
 app.listen(port,()=>{
     console.log(`listening to port: ${process.env.PORT}`);
