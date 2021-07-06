@@ -9,9 +9,9 @@ const getBooks = (req,res)=>{
         if (error) {
             res.send(error)
         } else {
+
             res.send(user)
-        }
-    });
-}
+        }});
+    }
 
 module.exports = getBooks;

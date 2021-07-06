@@ -2,17 +2,18 @@
 const express=require('express');
 const app=express();
 const cors=require('cors');
-const jwt=require('jsonwebtoken');
-
+// const jwt=require('jsonwebtoken');
 const mongoose=require('mongoose');
 // const jwksClient=require('jwks-rsa');
 require('dotenv').config();
-
+app.use(cors());
 const port = process.env.PORT
+
+
+
 const seedUserData = require('./models/usersSchema')
 // const usersSchema= require('./models/usersSchema')
 const bookController = require('./controller/book.controller')
-app.use(cors());
   
 mongoose.connect('mongodb://localhost:27017/books', { useNewUrlParser: true, useUnifiedTopology: true });
 
