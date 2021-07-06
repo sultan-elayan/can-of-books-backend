@@ -9,27 +9,27 @@ const userSchema = new mongoose.Schema({
     books: [bookSchema]
 });
 
+
 const userModel = mongoose.model('users',userSchema)
 const seedUserData = ( ) => {
 const newUser= new userModel ({
     email:'email@gmail.com',
     books:[
         {
-            name: 'In Search of Lost Time by Marcel Proust',
-            description: "Swann's Way, the first part of A la recherche de temps perdu, Marcel Proust's seven-part cycle, was published in 1913. In it, Proust introduces the themes that run through the entire work. The narr... ",
-            status: 'Available'
+            name: 'the secret',
+            description: "The Secret is a self-help book by Rhonda Byrne that explains how the law of attraction, which states that positive energy attracts positive things into your life, governs your thinking and actions, and how you can use the power of positive thinking to achieve anything you can imagine. ",
+            status: 'available'
         },
         {
-            name: 'Ulysses by James Joyce',
-            description: "Ulysses chronicles the passage of Leopold Bloom through Dublin during an ordinary day, June 16, 1904. The title parallels and alludes to Odysseus (Latinised into Ulysses), the hero of Homer's Odyss... ",
-            status: 'Out of the stock'
+            name: 'The magic',
+            description: "In The Magic, Rhonda Byrne reveals life-changing knowledge about the power of gratitude that was hidden within a two-thousand year old sacred text. ... No matter who you are, no matter where you are, no matter what your current circumstances, The Magic is going to change your entire life!",
+            status: 'out of the stock'
         },
         {
-            name: 'Don Quixote by Miguel de Cervantes',
-            description: "Alonso Quixano, a retired country gentleman in his fifties, lives in an unnamed section of La Mancha with his niece and a housekeeper. He has become obsessed with books of chivalry, and believes th... ",
-            status: 'Comming Soon..'
-        }
-    ]    
+            name: 'The power',
+            description: "The book is based on the law of attraction and claims that positive thinking can create life-changing results such as increased happiness, health, and wealth. Byrne describes this as a fundamental universal law akin to gravity. There are observations in The Power, such as the importance of being nice to your water. ",
+            status: 'available'
+        }]    
 })
 console.log(newUser);
 newUser.save();
