@@ -1,17 +1,17 @@
 'use strict';
 
 const userModel = require('../models/usersSchema');
-
 const getBooks = (req,res)=>{
     const {email} = req.query;
-    // console.log(email);
-    userModel.find({ email: email }, (error, user) => {
+    console.log(email);
+    userModel.findOne({ email:'bardaweel95.rawan@gmail.com'  }, (error, user) => {
         if (error) {
             res.send(error)
-        } else {
-
+        } 
+console.log('user',user)
             res.send(user)
-        }});
+        });
+        
     }
 
 module.exports = getBooks;
