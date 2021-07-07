@@ -1,5 +1,6 @@
 'use strict';
 
+const { response } = require('express');
 const userModel = require('../models/usersSchema');
 const getBooks = (req, res) => {
     const { email } = req.query;
@@ -14,27 +15,45 @@ const getBooks = (req, res) => {
 
 }
 
-const createBook = (req, res) => {
+const createBook = (req, response) => {
 
-    const { userEmail, name, bookDesc, bookStatus } = req.body;
+    const { userEmail, name } = req.body;
     console.log(req.body)
     userModel.findOne({ email: userEmail }, (error, userData) => {
         if (error) {
             res.send(error);
         }
         else {
-            // console.log(userData)
-            
-            userData.books.push({ name: name, description: bookDesc, status: bookStatus });
+          
+            userData.books.push({ name: name });
             userData.save();
-            res.json(userData);
+            response.json(userData);
         }
     })
 }
+const deleteBook = (req, res) => {
+
+    const bookIndex = req.params.book_idx;
+    const { email } = req.query;
+
+    userModel.findOne({ email: userEmail }, (error, userData) => {
+        if (error) {
+            res.send(error)
+        } else {
+            userData.books.splice(bookIndex, 1);
+            userData.save();
+            res.send(userData.books);
+            
+        }
+
+    });
+}
+
 
 
 module.exports = {
-    getBooks,createBook
+    getBooks,
+    createBook,
+    deleteBook
 }
-
 

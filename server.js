@@ -10,7 +10,7 @@ app.use(cors());
 const port = process.env.PORT
 const seedUserData = require('./models/usersSchema')
 // const usersSchema= require('./models/usersSchema')
-const { getBooks, createBook } = require('./controller/book.controller');
+const { getBooks, createBook ,deleteBook } = require('./controller/book.controller');
 mongoose.connect('mongodb://localhost:27017/books', { useNewUrlParser: true, useUnifiedTopology: true });
 
 
@@ -22,7 +22,8 @@ app.get('/', (req, res) => {
 })
 
 app.get('/books', getBooks);
-app.post('/books', createBook);
+app.post('/create_book', createBook);
+app.delete('/books/:book_id',deleteBook)
 
 
 app.listen(port, () => {
