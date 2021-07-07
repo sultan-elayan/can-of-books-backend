@@ -8,24 +8,24 @@ const mongoose=require('mongoose');
 require('dotenv').config();
 app.use(cors());
 const port = process.env.PORT
-
-
-
 const seedUserData = require('./models/usersSchema')
 // const usersSchema= require('./models/usersSchema')
-const bookController = require('./controller/book.controller')
-  
+const {getBooks,createBook} = require('./controller/book.controller');
 mongoose.connect('mongodb://localhost:27017/books', { useNewUrlParser: true, useUnifiedTopology: true });
+
+
+app.use(express.json());
+
 
 
 
 
 app.get('/', (req,res)=>{
-   res.send('heeelllllllllllllo')
+  res.send('heeelllllllllllllo')
 })
 
-app.get('/books', bookController);
-// app.get('/', usersSchema);
+app.get('/books', getBooks);
+app.post('/books', createBook);
 
 
 
