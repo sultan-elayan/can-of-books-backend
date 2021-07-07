@@ -1,26 +1,23 @@
 'use strict';
-const express=require('express');
-const app=express();
-const cors=require('cors');
+const express = require('express');
+const app = express();
+const cors = require('cors');
 // const jwt=require('jsonwebtoken');
-const mongoose=require('mongoose');
+const mongoose = require('mongoose');
 // const jwksClient=require('jwks-rsa');
 require('dotenv').config();
 app.use(cors());
 const port = process.env.PORT
 const seedUserData = require('./models/usersSchema')
 // const usersSchema= require('./models/usersSchema')
-const {getBooks,createBook} = require('./controller/book.controller');
+const { getBooks, createBook } = require('./controller/book.controller');
 mongoose.connect('mongodb://localhost:27017/books', { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 app.use(express.json());
 
 
-
-
-
-app.get('/', (req,res)=>{
+app.get('/', (req, res) => {
   res.send('heeelllllllllllllo')
 })
 
@@ -28,9 +25,8 @@ app.get('/books', getBooks);
 app.post('/books', createBook);
 
 
-
-app.listen(port,()=>{
-    console.log(`listening to port: ${process.env.PORT}`);
+app.listen(port, () => {
+  console.log(`listening to port: ${process.env.PORT}`);
 })
 
 
