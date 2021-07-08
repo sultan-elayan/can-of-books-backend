@@ -32,6 +32,5 @@ const newUser= new userModel ({
 })
 console.log(newUser);
 newUser.save();
-// return(newUser)
 
 module.exports= userModel ;
