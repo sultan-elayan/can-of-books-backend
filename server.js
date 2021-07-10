@@ -9,7 +9,7 @@ require('dotenv').config();
 app.use(cors());
 const port = process.env.PORT
 // const seedUserData = require('./models/usersSchema')
-const UsersSchema= require('./models/UsersSchema')
+const UserShema= require('./models/UserShema')
 const { getBooks, createBook ,deleteBook,updateBook } = require('./controller/book.controller');
 mongoose.connect('mongodb://localhost:27017/books', { useNewUrlParser: true, useUnifiedTopology: true });
 

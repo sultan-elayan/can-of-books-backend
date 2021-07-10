@@ -1,5 +1,5 @@
 
-const userModel = require('../models/usersSchema');
+const userModel = require('../models/UserShema');
 
 
 // =============================================

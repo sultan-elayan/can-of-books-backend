@@ -1,16 +1,15 @@
 'use strict';
-
 const mongoose = require('mongoose');
 const bookSchema = require('./Book.model');
 
 
-const UserSchema = new mongoose.Schema({
+const UserShema = new mongoose.Schema({
     email: { type: String },
     books: [bookSchema]
 });
 
 
-const userModel = mongoose.model('users',userSchema)
+const userModel = mongoose.model('users',UserShema)
 const newUser= new userModel ({
     email:'bardaweel95.rawan@gmail.com',
     books:[
