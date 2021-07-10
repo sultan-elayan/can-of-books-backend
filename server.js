@@ -21,6 +21,8 @@ const getKey=(header, callback)=>{
       });
 }
 
+
+
 // 'Bearer ;kkkkkkkkkkkkkkkkkkkkkkkkk'
 app.get('/authorize',(req,res)=>{
     const token=req.headers.authorization.split(' ')[1];
