@@ -7,6 +7,10 @@ const mongoose = require('mongoose');
 const jwksClient=require('jwks-rsa');
 const port = process.env.PORT
 // const seedUserData = require('./models/usersSchema')
+const usersSchema= require('./models/usersSchema')
+const { getBooks, createBook ,deleteBook,updateBook } = require('./controller/book.controller');
+mongoose.connect('mongodb://localhost:27017/books', { useNewUrlParser: true, useUnifiedTopology: true });
+
 // const usersSchema= require('./models/usersSchema')
 const { getBooks, createBook ,deleteBook , updateBook} = require('./controller/book.controller');
 require('dotenv').config();
@@ -25,6 +29,9 @@ app.get('/', (req, res) => {
 app.get('/books', getBooks);
 // create book 
 app.post('/create_book', createBook);
+app.delete('/books/:book_id',deleteBook);
+app.put('/update-books/:book_idx',updateBook);
+
 // delete book  
 app.delete('/delete_books/:book_id',deleteBook)
 // update book 
